@@ -76,10 +76,7 @@ class TestimonialController extends Controller
           $notification->type = "message";
           $notification->save();
     
-       /*  if ($request->user()) {
-            Mail::to($request->user()->email)->send(new TestimonialCreated($testimonial));
-        }
- */
+  
        return back()->with ('success', 'Témoignage créé avec succès! Il sera valide après confirmation des administrateurs');
 
    

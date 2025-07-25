@@ -15,7 +15,14 @@ class Service extends Model
         'description',
       'meta_description',
         'image',
+        'category_id'
     
         ];
+
+        
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
         
 }

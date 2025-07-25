@@ -97,7 +97,7 @@ Route::get('/print/commande/{id}', [HomeController::class, 'print_commande'])->n
 //Route::get('/marque/{id}', [HomeController::class, 'produits'])->where('id', '[0-9]+');
 //Route::get('/details-produits/{id}', [HomeController::class, 'details'])->name('details-produits');
 Route::get('/details-produits/{id}/{slug}', [HomeController::class, 'details'])->name('details-produits');
-Route::get('/details-services/{id}/{slug}', [HomeController::class, 'detailsServices'])->name('details-services');
+//Route::get('/details-services/{id}/{slug}', [HomeController::class, 'details_service'])->name('details-services');
 
 
  ///gestion boutique
@@ -131,7 +131,7 @@ Route::post('api/fetch-cities', [InscriptionController::class, 'fetchCity']);
 
 ////////////Actualités/////////
 Route::get('/news', [HomeController::class, 'blogs'])->name('news');
-Route::get('/category_blog/{id}', [HomeController::class, 'blogs'])->where('id', '[0-9]+');
+Route::get('/category_blog/{id}', [HomeController::class, 'blogsByCategory'])->where('id', '[0-9]+');
 Route::get('/details-blogs/{id}/{slug}', [HomeController::class, 'details_blogs'])->name('details-blogs');
 Route::get('searchblog', [HomeController::class, 'searchblog'])->name("searchblog");
 

@@ -13,6 +13,7 @@ class HomeComposer
     $view->with([
       'categories' => Category::has('formations')->take(6)->get(),
       'catblogs' => Category::has('blogs')->get(),
+      'catServices' => Category::has('services')->get(),
       'catevents' => Category::has('events')->get(),
       'blogs' => Blog::select('*')->latest()->take(6)->get(), /// Pour le home page
       'events' => Event::select('*')->latest()->take(4)->get(),

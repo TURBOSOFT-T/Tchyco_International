@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("url")->nullable();
             $table->string("message")->nullable();
             $table->timestamp('read_at')->nullable();
-            $table->enum("type",["commande","message","stock","signalment"])->default("commande");
+            $table->enum("type",["commande","message","stock","signalment","temoignage"])->default("commande");
             $table->enum("statut",["read","unread"])->default("unread");
             $table->timestamps();
 

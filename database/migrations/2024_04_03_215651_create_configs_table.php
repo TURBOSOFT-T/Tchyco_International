@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('telephone')->nullable()->default(null);
             $table->string('addresse')->nullable()->default(null);
             $table->string('email')->nullable()->default(null);
-            $table->longText('localisation')->nullable()->change();
+            $table->longText('localisation')->nullable();
             $table->text('description')->nullable()->default(null);
            
             $table->longText('biographie')->nullable();
@@ -29,15 +29,24 @@ return new class extends Migration
             $table->integer("coach")->nullable();
             $table->integer("tounoir")->nullable();
             $table->integer("seance")->nullable();
+
+            
+            $table->integer("experience")->nullable();
+            $table->integer("client")->nullable();
+            $table->integer("pourcetage")->nullable();
+            $table->integer("sponsor")->nullable();
+            $table->integer("projet")->nullable();
             
 
             $table->string("logocontact")->nullable();
             $table->string("imagecontact")->nullable();
+            
             $table->string("imageevent")->nullable();
             $table->string("imageformation")->nullable();
 
             $table->string("imageblog")->nullable();
             $table->string("imageenteteabout")->nullable();
+             $table->string("imageenteteservice")->nullable();
 
             $table->string("facebook")->nullable();
             $table->string("twitter")->nullable();
@@ -51,9 +60,7 @@ return new class extends Migration
             $table->string('image_apropos')->nullable();
             $table->text('titre_apropos')->nullable();
 
-           // $table->text('titre_apropos')->nullable();
-           // $table->text('des_apropos')->nullable();
-           // $table->string('image_apropos')->nullable();
+           
            $table->text('slogan_apropos')->nullable();
            $table->text('slogan1_apropos')->nullable();
 
@@ -66,7 +73,7 @@ return new class extends Migration
             $table->string('image_apropos2')->nullable();
             
            // $table->string('photos')->nullable();
-            $table->longText('photos')->nullable()->change();
+            $table->longText('photos')->nullable();
            // $table->enum("gender",["FEMALE","MALE"])->default("MALE");
 
            $table->string('image1_home')->nullable();

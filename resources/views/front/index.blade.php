@@ -15,129 +15,83 @@
 <!-- Body main wrapper start -->
 
 
-    <!-- Banner area start -->
-    <section class="banner__area p-relative overflow-hidden"> 
-        <div class="bg-color"></div>
-        <div class="banner-home__middel-shape-2"></div>
-        <div class="banner-custom-container">
+        <!-- Banner area start -->
+        <section class="banner__area p-relative z-1">
             <div class="swiper banner_parallax-slider p-relative">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="banner banner__space banner__space-3 overflow-hidden">
-                            <div class="bg-shape">
-                                <img class="leftRight" src="assets/imgs/banner-3/isolation_mode-2.svg" alt="img not found">
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner__content content-3 p-relative z-index-1">
-                                        <span class="sub-title">New Arrival Printfix</span>
-                                        <h2 class="title">Quick And Best Printing For Your Business</h2>
+                    @foreach ($banners as $key => $banner)
+                        <div class="swiper-slide">
+                            <div class="banner banner__space">
+                                <div class="banner__thumb-bg" data-background="{{ Storage::url($banner->image) }}"
+                                    width="400" height="400"></div>
+                                <div class="container">
+                                    <div class="banner__space-shape-wrapper">
+                                        <div class="banner__space-shape-wrapper-top-black-shape">
+                                            <img class="slider-background" src="{{ Storage::url($banner->image) }}"
+                                                width="400" height="400" alt="Slider background" />
+                                        </div>
+                                        <div class="banner__space-shape-wrapper-bottom-shape">
+                                            <img class="slider-background" src="{{ Storage::url($banner->image) }}"
+                                                width="400" height="400" alt="Slider background" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xxl-9 col-xl-9 col-lg-10">
+                                            <div class="banner__content p-relative z-index-1">
+                                                <span class="banner__sub-title wow fade-in-bottom"
+                                                    data-wow-delay="200ms"></span>
+                                                <h2 class="banner__title wow fade-in-bottom" data-wow-delay="400ms">
+                                                    {{ $banner->titre ?? '' }}</h2>
+                                                <p class="h5 wow fade-in-bottom" data-wow-delay="400ms">
+                                                    {{ $banner->sous_titre ?? '' }}</p>
 
-                                        <div class="banner-home-2__btn__wrapper-2 d-flex flex-wrap mt-40 mt-md-35 mt-sm-30 mt-xs-25 pb-40">
-                                            <a href="service.html" class="rr-btn wow fadeInLeft animated" data-wow-delay="1s">Start Your Project</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner-media-3 p-relative z-index-1">
-                                        <div class="middel-img upDown-bottom">
-                                            <div class="frist-img img-border">
-                                                <img src="assets/imgs/banner-3/t-shart-3.png" alt="img not found">
-                                            </div>
-                                            <div class="secend-img img-border">
-                                                <img src="assets/imgs/banner-3/t-shart-2.png" alt="img not found">
+                                              
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner-text p-relative z-index-1">
-                                        <div class="text-space">
-                                            <p>There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected.</p>
-                                            <div class="arrow">
-                                                <img class="upDown" src="assets/imgs/banner-3/banner-3-right-shape.svg" alt="img not found">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="banner banner__space banner__space-3 overflow-hidden">
-                            <div class="bg-shape">
-                                <img class="leftRight" src="assets/imgs/banner-3/isolation_mode-2.svg" alt="img not found">
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner__content content-3 p-relative z-index-1">
-                                        <span class="sub-title">New Arrival Printfix</span>
-                                        <h2 class="title">Quick And Best Printing For Your Business</h2>
+                    @endforeach
 
-                                        <div class="banner-home-2__btn__wrapper-2 d-flex flex-wrap mt-40 mt-md-35 mt-sm-30 mt-xs-25 pb-40">
-                                            <a href="service.html" class="rr-btn wow fadeInLeft animated" data-wow-delay="1s">Start Your Project</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner-media-3 p-relative z-index-1">
-                                        <div class="middel-img upDown-bottom">
-                                            <div class="frist-img img-border">
-                                                <img src="assets/imgs/banner-3/cap-3.png" alt="img not found">
-                                            </div>
-                                            <div class="secend-img img-border">
-                                                <img src="assets/imgs/banner-3/t-shart-4.png" alt="img not found">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-6 col-md-12">
-                                    <div class="banner-text p-relative z-index-1">
-                                        <div class="text-space">
-                                            <p>There are many variations of passages orem psum available but the majority have suffered alteration in some form by injected.</p>
-                                            <div class="arrow">
-                                                <img class="upDown" src="assets/imgs/banner-3/banner-3-right-shape.svg" alt="img not found">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="banner__navigation d-none d-lg-block">
+                    <button class="banner__button-next"><svg width="20" height="20" viewBox="0 0 20 20"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 10H1" stroke="#001D08" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M10 1L1 10L10 19" stroke="#001D08" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <button class="banner__button-prev"><svg width="20" height="20" viewBox="0 0 20 20"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 10H19" stroke="#001D08" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M10 1L19 10L10 19" stroke="#001D08" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
                 </div>
             </div>
-        </div>
-            <!-- If we need navigation buttons -->
-            <div class="banner__navigation banner__navigation-3 d-none d-lg-block">
-                <button class="banner__button-next">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 10H1" stroke="#001D08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10 1L1 10L10 19" stroke="#001D08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                <button class="banner__button-prev">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 10H19" stroke="#001D08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10 1L19 10L10 19" stroke="#001D08" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                
-            </div>
-    </section>
-    <!-- Banner area end -->
+        </section>
 
    <!--latest Choose Us start-->
     <section class="latest-Choose-us__area section-space overflow-hidden latest-Choose-bg">
         <div class="container p-relative z-index-1">
             <div class="latest-Choose-us__all-shape">
                 <div class="latest-Choose-us__bg-shape">
-                    <img class="upDown-bottom img-fluid" src="assets/imgs/choose-us/bg-shape.svg" alt="img not found">
+                    <img class="upDown-bottom img-fluid" src="/front/assets/imgs/choose-us/bg-shape.svg" alt="img not found">
                 </div>
                 <div class="latest-Choose-us__bag-shape">
-                    <img class="zooming img-fluid" src="assets/imgs/choose-us/bag-shape.png" alt="img not found">
+                    <img class="zooming img-fluid" src="/front/assets/imgs/choose-us/bag-shape.png" alt="img not found">
                 </div>
                 <div class="latest-Choose-us__cap-shape">
-                    <img class="upDown-top img-fluid" src="assets/imgs/choose-us/cap-shape.png" alt="img not found">
+                    <img class="upDown-top img-fluid" src="/front/assets/imgs/choose-us/cap-shape.png" alt="img not found">
                 </div>
             </div>
             <div class="latest-Choose-us__media-experience-box d-flex" data-parallax='{"y": -160, "smoothness": 15}'>
@@ -177,10 +131,10 @@
                 <div class="col-xl-6 col-lg-6 col-md-5">
                     <div class="latest-Choose-us__media d-flex flex-row">
                         <div class="latest-Choose-us__media-img1">
-                            <img class="img-fluid" src="assets/imgs/choose-us/chooes-us-img1.jpg" alt="image not found">
+                            <img class="img-fluid" src="/front/assets/imgs/choose-us/chooes-us-img1.jpg" alt="image not found">
                         </div>
                         <div class="latest-Choose-us__media-img2">
-                            <img src="assets/imgs/choose-us/chooes-us-img2.jpg" alt="image not found" class="img-fluid">
+                            <img src="/front/assets/imgs/choose-us/chooes-us-img2.jpg" alt="image not found" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -195,10 +149,10 @@
         <div class="container p-relative">
             <div class="latest-service__all-shape">
                 <div class="latest-service__right-shape">
-                    <img class="upDown" src="assets/imgs/service/right-shape.svg" alt="img not found">
+                    <img class="upDown" src="/front/assets/imgs/service/right-shape.svg" alt="img not found">
                 </div>
                 <div class="latest-service__bg-shape">
-                    <img class="upDown" src="assets/imgs/service/service-bg-shape.png" alt="img not found">
+                    <img class="upDown" src="/front/assets/imgs/service/service-bg-shape.png" alt="img not found">
                 </div>
             </div>
             <div class="row">
@@ -208,90 +162,27 @@
                             <h6>Our Main Services</h6>
                         </div>
                         <div class="latest-service__title-box-title wow fadeInLeft animated" data-wow-delay=".8s">
-                            <h2>Professional Digital Printing</h2>
+                            {{-- <h2>Professional Digital Printing</h2> --}}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                 @foreach ($services as $service )
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                     <div class="latest-service__item text-center wow fadeInLeft animated" data-wow-delay="1s">
                         <div class="latest-service__item-icon">
-                            <img src="assets/imgs/service/service1.svg" alt="img not found">
+                            <img src="{{ Storage::url($service->image) }}" width="400 " height="400 " alt="img not found">
                         </div>
                         <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Top Quality Prints</h4></a>
+                            <a href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}"><h4> {{ \App\Helpers\TranslationHelper::TranslateText($service->nom) }} </h4></a>
                         </div>
                         <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
+                            <p> {{ \App\Helpers\TranslationHelper::TranslateText($service->meta_description) }} </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest-service__item text-center wow fadeInLeft animated" data-wow-delay="1.2s">
-                        <div class="latest-service__item-icon">
-                            <img src="assets/imgs/service/service2.svg" alt="img not found">
-                        </div>
-                        <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Mix and match colors</h4></a>
-                        </div>
-                        <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest-service__item text-center wow fadeInLeft animated" data-wow-delay="1.4s">
-                        <div class="latest-service__item-icon">
-                            <img src="assets/imgs/service/service3.svg" alt="img not found">
-                        </div>
-                        <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Shipping worldwide</h4></a>
-                        </div>
-                        <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest-service__item text-center wow fadeInRight animated" data-wow-delay="1.2s">
-                        <div class="latest-service__item-icon service-4">
-                            <img src="assets/imgs/service/service4.svg" alt="img not found">
-                        </div>
-                        <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Offset Printing</h4></a>
-                        </div>
-                        <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest-service__item text-center wow fadeInRight animated" data-wow-delay="1.4s">
-                        <div class="latest-service__item-icon">
-                            <img src="assets/imgs/service/service5.svg" alt="img not found">
-                        </div>
-                        <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Quality Guarantee</h4></a>
-                        </div>
-                        <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                    <div class="latest-service__item text-center wow fadeInRight animated" data-wow-delay="1.6s">
-                        <div class="latest-service__item-icon">
-                            <img src="assets/imgs/service/service6.svg" alt="img not found">
-                        </div>
-                        <div class="latest-service__item-title">
-                            <a href="service-details.html"><h4>Reorder quickly</h4></a>
-                        </div>
-                        <div class="latest-service__item-text">
-                            <p>Mi donec risus commodo auctor phasellus adipiscing. Faucibus magna cursus sed sodales amet. Nunc.</p>
-                        </div>
-                    </div>
-                </div>
+               @endforeach
             </div>
         </div>
     </section>
@@ -304,7 +195,7 @@
                    <div class="latest-counter__counter-box wow fadeInLeft animated" data-wow-delay="1s">
                         <div class="latest-counter__content text-center">
                             <div class="latest-counter__content__counter-img mt-40">
-                                <img src="assets/imgs/counter/home1-counter-up-1.svg" alt="img not found">
+                                <img src="/front/assets/imgs/counter/home1-counter-up-1.svg" alt="img not found">
                             </div>
                             <h5><span class="count">270</span>+</h5>
                             <span>Happy Customers</span>
@@ -314,7 +205,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="latest-counter__content text-center wow fadeInLeft animated" data-wow-delay="1.2s">
                         <div class="latest-counter__content__counter-img">
-                            <img src="assets/imgs/counter/home1-counter-up-2.svg" alt="img not found">
+                            <img src="/front/assets/imgs/counter/home1-counter-up-2.svg" alt="img not found">
                         </div>
                         <h5><span class="count">1320</span>+</h5>
                         <span>Project Complate</span>
@@ -323,7 +214,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="latest-counter__content text-center wow fadeInLeft animated" data-wow-delay="1.4s">
                         <div class="latest-counter__content__counter-img man-icon">
-                            <img src="assets/imgs/counter/home1-counter-up-3.svg" alt="img not found">
+                            <img src="/front/assets/imgs/counter/home1-counter-up-3.svg" alt="img not found">
                         </div>
                         <h5><span class="count">180</span>+</h5>
                         <span>Experts Team</span>
@@ -332,7 +223,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="latest-counter__content text-center wow fadeInLeft animated" data-wow-delay="1.6s">
                         <div class="latest-counter__content__counter-img ellipse-icon">
-                            <img src="assets/imgs/counter/home1-counter-up-4.svg" alt="img not found">
+                            <img src="/front/assets/imgs/counter/home1-counter-up-4.svg" alt="img not found">
                         </div>
                         <h5><span class="count">15</span>+</h5>
                         <span>Years Of Experience</span>
@@ -475,8 +366,12 @@
         <div class="container">
             <div class="blog-top heading-space2">
                 <div class="latest-blog__title-wrapper">
-                    <h6 class="subtitle wow fadeInLeft animated" data-wow-delay=".2s">Blog Post</h6>
-                    <h2 class="title wow fadeInLeft animated" data-wow-delay=".4s">Read Latest News & Blog</h2>
+                    <h6 class="subtitle wow fadeInLeft animated" data-wow-delay=".2s">  {{ \App\Helpers\TranslationHelper::TranslateText('Les actualités') }}</h6>
+                    <h2 class="title wow fadeInLeft animated" data-wow-delay=".4s">
+                        
+                {{ \App\Helpers\TranslationHelper::TranslateText('Restez informer des dernières actualités') }}
+               
+                    </h2>
                 </div>
                 <div class="latest-blog__button-right fadeInRight animated" data-wow-delay=".3s">
                     <button class="small-btn small-btn-transparent blog__slider-button-prev">
@@ -496,35 +391,12 @@
                     <div class="latest-blog__item mb-30 wow fadeInLeft animated" data-wow-delay=".8s">
                         <div class="swiper mySwiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide latest-blog__item-slide pb-30">
-                                    <div class="latest-blog__item-slide-inner">
-                                        <div class="latest-blog__item-media">
-                                            <a href="blog-details.html">
-                                                <img src="assets/imgs/blog/letest-blog/blog-card1.jpg" alt="images not found" class="img-fluid">
-                                            </a>
-                                        </div>
-                                        <div class="latest-blog__item-text">
-                                            <div class="latest-blog__item-text-meta d-flex">
-                                                <div class="latest-blog__item-text-meta-calender">
-                                                    <h4>12</h4>
-                                                    <p>Sep</p>
-                                                </div>
-                                                <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                                <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
-                                            </div>
-                
-                                            <div class="latest-blog__item-text-bottom">
-                                                <a href="blog-details.html"><h4>How Chat bots Can Help You Drive More Sales.</h4></a>
-                                                <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            @foreach ($blogs as $blog )
 
                                 <div class="swiper-slide latest-blog__item-slide pb-30">
                                     <div class="latest-blog__item-media">
-                                        <a href="blog-details.html">
-                                            <img src="assets/imgs/blog/letest-blog/blog-card2.jpg" alt="images not found" class="img-fluid">
+                                        <a href="{{ route('details-blogs', ['id' => $blog->id, 'slug'=>Str::slug(Str::limit($blog->title, 10))]) , }}">
+                                            <img src="{{ Storage::url($blog->image) }}" alt="images not found" class="img-fluid">
                                         </a>
                                     </div>
                                     
@@ -534,109 +406,18 @@
                                                 <h4>12</h4>
                                                 <p>Sep</p>
                                             </div>
-                                            <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                            <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
+                                            <span><a href="#"><i class="fa-regular fa-user"></i> Admin</a></span>
+                                            <span class="meta-comment"><a href="#"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
                                         </div>
             
                                         <div class="latest-blog__item-text-bottom">
-                                            <a href="blog-details.html"><h4>Emergency printing pressnear you?</h4></a>
-                                            <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                            <a href="{{ route('details-blogs', ['id' => $blog->id, 'slug'=>Str::slug(Str::limit($blog->title, 10))]) , }}"><h4> {{ \App\Helpers\TranslationHelper::TranslateText($blog->title) }} </h4></a>
+                                            <a href="{{ route('details-blogs', ['id' => $blog->id, 'slug'=>Str::slug(Str::limit($blog->title, 10))]) , }}" class="readmore d-flex align-items-center"> {{ \App\Helpers\TranslationHelper::TranslateText('Voir plus') }} <i class="fa-solid fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="swiper-slide latest-blog__item-slide pb-30">
-                                    <div class="latest-blog__item-media">
-                                        <a href="blog-details.html">
-                                            <img src="assets/imgs/blog/letest-blog/blog-card3.jpg" alt="images not found" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="latest-blog__item-text">
-                                        <div class="latest-blog__item-text-meta d-flex">
-                                            <div class="latest-blog__item-text-meta-calender">
-                                                <h4>12</h4>
-                                                <p>Sep</p>
-                                            </div>
-                                            <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                            <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
-                                        </div>
-            
-                                        <div class="latest-blog__item-text-bottom">
-                                            <a href="blog-details.html"><h4>Introduction to our way of work near you.</h4></a>
-                                            <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide latest-blog__item-slide pb-30">
-                                    <div class="latest-blog__item-media">
-                                        <a href="blog-details.html">
-                                            <img src="assets/imgs/blog/letest-blog/blog-card1.jpg" alt="images not found" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="latest-blog__item-text">
-                                        <div class="latest-blog__item-text-meta d-flex">
-                                            <div class="latest-blog__item-text-meta-calender">
-                                                <h4>12</h4>
-                                                <p>Sep</p>
-                                            </div>
-                                            <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                            <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
-                                        </div>
-            
-                                        <div class="latest-blog__item-text-bottom">
-                                            <a href="blog-details.html"><h4>How Chat bots Can Help You Drive More Sales.</h4></a>
-                                            <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide latest-blog__item-slide pb-30">
-                                    <div class="latest-blog__item-media">
-                                        <a href="blog-details.html">
-                                            <img src="assets/imgs/blog/letest-blog/blog-card2.jpg" alt="images not found" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    
-                                    <div class="latest-blog__item-text">
-                                        <div class="latest-blog__item-text-meta d-flex">
-                                            <div class="latest-blog__item-text-meta-calender">
-                                                <h4>12</h4>
-                                                <p>Sep</p>
-                                            </div>
-                                            <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                            <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
-                                        </div>
-        
-                                        <div class="latest-blog__item-text-bottom">
-                                            <a href="blog-details.html"><h4>Emergency printing pressnear you?</h4></a>
-                                            <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide latest-blog__item-slide pb-30">
-                                    <div class="latest-blog__item-media">
-                                        <a href="blog-details.html">
-                                            <img src="assets/imgs/blog/letest-blog/blog-card3.jpg" alt="images not found" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="latest-blog__item-text">
-                                        <div class="latest-blog__item-text-meta d-flex">
-                                            <div class="latest-blog__item-text-meta-calender">
-                                                <h4>12</h4>
-                                                <p>Sep</p>
-                                            </div>
-                                            <span><a href="blog-details.html"><i class="fa-regular fa-user"></i> Admin</a></span>
-                                            <span class="meta-comment"><a href="blog-details.html"><i class="fa-regular fa-comment"></i> 2 Comments</a></span>
-                                        </div>
-            
-                                        <div class="latest-blog__item-text-bottom">
-                                            <a href="blog-details.html"><h4>Introduction to our way of work near you.</h4></a>
-                                            <a href="blog-details.html" class="readmore d-flex align-items-center">Read More <i class="fa-solid fa-arrow-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+   @endforeach
+                            
                             </div>
                         </div>
                     </div>

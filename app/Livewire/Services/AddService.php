@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Services;
 
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -10,13 +11,14 @@ use Livewire\WithFileUploads;
 class AddService extends Component
 {
     use WithFileUploads;
-    public $nom, $image, $service, $description, $OldPhoto , $meta_description;
+    public $nom, $image, $service, $description, $OldPhoto , $meta_description, $category_id;
 
     public function mount($service)
     {
         if ($service) {
             $this->service = $service;
             $this->nom = $service->nom;
+              $this->category_id = $service->category_id;
             $this->description = $service->description;
             $this->meta_description = $service->meta_description;
             $this->OldPhoto = $service->image;
@@ -27,13 +29,15 @@ class AddService extends Component
     {
         $this->nom = '';
         $this->description = '';
+        $this->meta_description ='';
     }
 
 
 
     public function render()
     {
-        return view('livewire.services.add-service');
+         $categories = Category::all();
+        return view('livewire.services.add-service', compact('categories'));
     }
 
 
@@ -44,10 +48,11 @@ class AddService extends Component
     //validation
     public function create()
     {
-        $this->validate([
+   $data=     $this->validate([
             'nom' => 'required|string|max:255',
             'description' => 'nullable|string|Max:5000',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp',
+            'category_id' => 'required|integer|exists:categories,id',
         ], [
             'nom.required' => 'Le nom est obligatoire',
             'description.required' => 'La description est obligatoire',
@@ -59,14 +64,15 @@ class AddService extends Component
             'description.max' => 'La description ne doit pas dépasser 5000 caractères',
         ]);
 
-
+$categories = Category::findOrFail($data[('category_id')]);
 
         $service = new Service();
         $service->nom = $this->nom;
         $service->meta_description = $this->meta_description;
         $service->description = $this->description;
+        $service->category_id = $this->category_id;
         $service->image = $this->image->store('services', 'public');
-        $service->save();
+        $categories-> services()->save($service);
         $this->resetInput();
         session()->flash('success', 'Service ajoutée avec succès');
     }

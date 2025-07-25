@@ -14,6 +14,7 @@ class config extends Model
         'logo',
         'logoHeader',
         'telephone',
+        'localisation',
         'addresse',
         'email',
         'description',
@@ -47,7 +48,16 @@ class config extends Model
         'titre_home',
         'sous_titre_home',
         'des_home',
-        'biographie'
-        
+        'biographie',
+
+        'imageenteteservice',
+
+
+        'experience',
+        'client',
+        'pourcetage',
+        'sponsor',
+        'projet',
+
     ];
 }

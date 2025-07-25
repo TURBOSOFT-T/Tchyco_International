@@ -11,6 +11,10 @@ class Category extends Model
 
    
 
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'category_id', 'id');
+    }
    
 
     public function produits()

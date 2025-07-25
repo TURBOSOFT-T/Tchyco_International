@@ -156,63 +156,6 @@
     </section>
     <!-- service area end -->
 
-    <!-- Brand area start -->
-    <section class="main-brand__area">
-        <div class="brand__area section-space">
-            <div class="container">
-                <div class="row">
-                    <div class="main-brand__tittle-wrapper text-center mb-40">
-                        <h4 class="main-brand__tittle-wrapper-title">"Morethan 5k Top Global Brands Trust our Services"</h4>
-                        <p class="main-brand__tittle-wrapper-subtitle">Variations of passages of lorem but the majority.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="swiper brand__active wow fadeIn" data-wow-delay=".3s">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="brand__item text-center  wow fadeIn animated" data-wow-delay=".1s">
-                                        <div class="brand__thumb">
-                                            <img class="img-fluid" src="/front/assets/imgs/brands/home2-companey-brands-img-1.png" alt="image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="brand__item text-center  wow fadeIn animated" data-wow-delay=".2s">
-                                        <div class="brand__thumb">
-                                            <img class="img-fluid" src="/front/assets/imgs/brands/home2-companey-brands-img-2.png" alt="image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="brand__item text-center  wow fadeIn animated" data-wow-delay=".3s">
-                                        <div class="brand__thumb">
-                                            <img class="img-fluid" src="/front/assets/imgs/brands/home2-companey-brands-img-3.png" alt="image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="brand__item text-center  wow fadeIn animated" data-wow-delay=".4s">
-                                        <div class="brand__thumb">
-                                            <img class="img-fluid" src="/front/assets/imgs/brands/home2-companey-brands-img-4.png" alt="image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="brand__item text-center  wow fadeIn animated" data-wow-delay=".5s">
-                                        <div class="brand__thumb">
-                                            <img class="img-fluid" src="/front/assets/imgs/brands/home2-companey-brands-img-5.png" alt="image not found">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Brand area end -->
 
     <!-- latest-cta2__area start -->
     <div class="latest-cta2__area section-space p-relative overflow-hidden " data-background="/front/assets/imgs/cta/home-2/cta2-bg-img.jpg">

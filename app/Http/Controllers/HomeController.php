@@ -239,6 +239,24 @@ class HomeController extends Controller
         return view('front.blogs.index', compact( 'categories', 'blogs','lasts'));
     }
 
+
+      public function blogsByCategory($id)
+    {
+        $categories = Category::withCount('blogs')
+        ->has('blogs')
+        ->get();
+       // $categories = Category::with('blogs')->get();
+        $current_category = Category::has('blogs')
+    ->findOrFail($id);
+
+     $blogs = $current_category->blogs()->paginate(10);
+       $lasts = Blog::select('*')->latest()->take(5)->get();
+       
+       // $blogs = Blog::select('*')->latest()->get();
+        
+        return view('front.blogs.index', compact( 'categories', 'blogs','lasts'));
+    }
+
     
     public function details_blogs($id){
         $blog =Blog::with('comments')-> findOrFail($id);
@@ -256,14 +274,14 @@ class HomeController extends Controller
         ->where('ip_address', $ip)
         ->exists();
 
-    if (!$alreadyViewed) {
+    /* if (!$alreadyViewed) {
         BlogView::create([
             'blog_id' => $blog->id,
             'ip_address' => $ip,
         ]);
         $blog->increment('views');
     }
-
+ */
 
         return view('front.blogs.details', compact('blog','configs', 'lasts', 'categories','comments'));
     }
@@ -288,7 +306,7 @@ class HomeController extends Controller
     {
         $categories = Category::withCount('services')->has('services')->get();
         $current_category = Category::with('services')->findOrFail($id);
-        $formations = $current_category->formations()->paginate(10);
+        $services = $current_category->services();
 
     
 
@@ -301,7 +319,7 @@ class HomeController extends Controller
         return view('front.services.index', compact('services','configs'));
       }
 
-      public function detailsServices($id, $slug){
+      public function details_services($id, $slug){
         $service =Service:: findOrFail($id);
         $configs= config::all();
         $services = Service::all();

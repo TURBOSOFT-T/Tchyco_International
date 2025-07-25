@@ -58,7 +58,7 @@
 
                             {{ $cat->nom }}
                         </td>
-                        <td>{{$cat->formations->count()}}</td>
+                        <td>{{$cat->services->count()}}</td>
                        
                         <td>{{$cat->blogs->count()}}</td>
                         <td>

@@ -40,7 +40,7 @@
 
 
                 <div class="col-md-6">
-                    <label class="form-label" for="multicol-username">Image page formation(1920*495)</label>
+                    <label class="form-label" for="multicol-username">Image page service(1920*495)</label>
                     
                         <input type="file" wire:model="imageformation" accept="image/*" placeholder="votre image" class="form-control">
                         @error('imageformation')
@@ -61,7 +61,7 @@
 
 
                 <div class="col-md-6">
-                    <label class="form-label" for="multicol-username">Image page Evènement(1920*495)</label>
+                    <label class="form-label" for="multicol-username">Image page A propos(1920*495)</label>
                     
                         <input type="file" wire:model="imageevent" accept="image/*" placeholder="votre image" class="form-control">
                         @error('imageevent')
@@ -105,8 +105,12 @@
                             <span class="text-danger small"> {{ $message }} </span>
                         @enderror
                 </div>
-
-
+<br>
+  <div class="text-center bg-secondary card my-auto ">
+                <h6 class="text-white">
+                    Section 1
+                </h6>
+            </div>
 
                 <div class="col-md-12">
                     <label class="form-label" for="multicol-username">Titre A propos section 1</label>
@@ -144,7 +148,11 @@
                             <span class="text-danger small"> {{ $message }} </span>
                         @enderror
                 </div>
-
+  <div class="text-center bg-secondary card my-auto p-1 mb-3">
+                <h6 class="text-white">
+                    Section 2
+                </h6>
+            </div>
                 <div class="col-md-6">
                     <label class="form-label" for="multicol-username">Image page A Propos (1920*495)</label>
                     
@@ -154,7 +162,7 @@
                         @enderror
                 </div>
 
-                <div class="col-md-12">
+           {{--      <div class="col-md-12">
                     <label class="form-label" for="multicol-username">Message slogan 1 </label>
                     
                         <input type="text" wire:model="slogan_apropos"  placeholder="Le titre " rows="3" class="form-control"> 
@@ -170,7 +178,7 @@
                         @error('slogan1_apropos')
                             <span class="text-danger small"> {{ $message }} </span>
                         @enderror
-                </div>
+                </div> --}}
 
 
                 <div class="col-md-6">
@@ -366,7 +374,7 @@
             </div>
             <div class="row g-6">
                 <div class="col-md-3">
-                    <label class="form-label" for="multicol-first-name">Adhérents</label>
+                    <label class="form-label" for="multicol-first-name">Clients</label>
                     <input type="text"wire:model="adherent" id="multicol-last-name" class="form-control"
                         placeholder="Adherents" />
                     @error('adherent')
@@ -377,7 +385,7 @@
                 
                
                 <div class="col-md-3">
-                    <label class="form-label" for="multicol-first-name">Nombre de  formateurs</label>
+                    <label class="form-label" for="multicol-first-name">Nombre de sponsors</label>
                     <input type="text"wire:model="coach" id="multicol-last-name" class="form-control"
                         placeholder="Formateurs" />
                     @error('coach')
@@ -386,7 +394,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <label class="form-label" for="multicol-first-name">Formations</label>
+                    <label class="form-label" for="multicol-first-name">Experience</label>
                     <input type="text"wire:model="tounoir" id="multicol-last-name" class="form-control"
                         placeholder="Formations" />
                     @error('tounoir')
@@ -394,7 +402,7 @@
                     @enderror
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label" for="multicol-first-name">Evènements</label>
+                    <label class="form-label" for="multicol-first-name">Projets</label>
                     <input type="text"wire:model="seance" id="multicol-last-name" class="form-control"
                         placeholder="Evènements" />
                     @error('seance')

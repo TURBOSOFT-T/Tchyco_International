@@ -43,6 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/Script.js"></script>
     @yield('SEO')
+    @yield('blogs')
 
 </head>
 
@@ -155,40 +156,61 @@
                                     <ul>
                                         <li>
                                             <a href="{{ route('home') }}">
-                                                  {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}
                                             </a>
 
                                         </li>
 
                                         <li>
                                             <a href="{{ route('about') }}">
-                                                {{--  {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }} --}}
+                                                {{-- {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }} --}}
 
                                                 {{ __('about') }}
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="{{ route('nos_services') }}">
-                                                {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('Services')) }}
+                                   
 
 
-                                            </a>
+                                          <li class="has-dropdown ">
+                                            <a href="{{ route('nos_services') }}"
+                                                {{-- href="javascript:void(0)" --}}>{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
+                                            <ul class="submenu">
+                                                @foreach ($catServices as $category)
+                                                    <li><a
+                                                            href="/category_service/{{ $category->id }}">{{ \App\Helpers\TranslationHelper::TranslateText($category->nom) }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </li>
 
-                                        <li>
+                                        {{-- <li>
                                             <a href="{{ route('news') }}">
-                                                {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('Actualités')) }}
+                                        {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('Actualités')) }}
 
 
+                                        </a>
+                                        </li> --}}
+
+                                        <li class="has-dropdown ">
+                                            <a href="{{ route('news') }}"
+                                                {{-- href="javascript:void(0)" --}}>{{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}</a>
+                                            <ul class="submenu">
+                                                @foreach ($catblogs as $category)
+                                                    <li><a
+                                                            href="/category_blog/{{ $category->id }}">{{ \App\Helpers\TranslationHelper::TranslateText($category->nom) }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="{{ route('contact') }}">
+
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}
                                             </a>
                                         </li>
-                                        <li><a href="{{ route('contact') }}">
-                                            
-                                          {{ \App\Helpers\TranslationHelper::TranslateText('Cotact') }}
-                                        </a></li>
 
 
-                                        </li>
+
                                         @guest
 
 
@@ -198,7 +220,7 @@
                                             <li>
                                                 <a href="{{ url('login') }}">
 
-                                                      {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Connexion') }}
                                                 </a>
                                             </li>
                                         @else
@@ -214,60 +236,60 @@
 
                                         @endguest
 
- 
-                                    <div class="custom-dropdown">
-                                        <form action="{{ route('locale.change') }}" method="POST">
-                                            @csrf
-                                            <div class="dropdown">
-                                                <button class="dropbtn">
-                                                    @if (app()->getLocale() == 'fr')
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
-                                                    @elseif(app()->getLocale() == 'en')
-                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                            alt="en">
-                                                    @elseif(app()->getLocale() == 'de')
-                                                        <img src="https://img.icons8.com/color/20/germany-circular.png"
-                                                            alt="de">
-                                                    @else
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
-                                                    @endif
 
-                                                </button>
-                                                <div class="dropdown-content">
-                                                    <button type="submit" name="locale" value="fr"
-                                                        class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
-                                                        Français
+                                        <div class="custom-dropdown">
+                                            <form action="{{ route('locale.change') }}" method="POST">
+                                                @csrf
+                                                <div class="dropdown">
+                                                    <button class="dropbtn">
+                                                        @if (app()->getLocale() == 'fr')
+                                                            <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                                alt="fr">
+                                                        @elseif(app()->getLocale() == 'en')
+                                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                                alt="en">
+                                                        @elseif(app()->getLocale() == 'de')
+                                                            <img src="https://img.icons8.com/color/20/germany-circular.png"
+                                                                alt="de">
+                                                        @else
+                                                            <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                                alt="fr">
+                                                        @endif
+
                                                     </button>
-                                                    <button type="submit" name="locale" value="en"
-                                                        class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                            alt="en">
-                                                        English
-                                                    </button>
-                                                     {{--  <button type="submit" name="locale" value="de"
+                                                    <div class="dropdown-content">
+                                                        <button type="submit" name="locale" value="fr"
+                                                            class="dropdown-item">
+                                                            <img src="https://img.icons8.com/color/20/france-circular.png"
+                                                                alt="fr">
+                                                            Français
+                                                        </button>
+                                                        <button type="submit" name="locale" value="en"
+                                                            class="dropdown-item">
+                                                            <img src="https://img.icons8.com/color/20/great-britain-circular.png"
+                                                                alt="en">
+                                                            English
+                                                        </button>
+                                                        {{-- <button type="submit" name="locale" value="de"
                                                         class="dropdown-item">
                                                         <img src="https://img.icons8.com/color/20/germany-circular.png"
                                                             alt="de">
                                                         Deutsch
                                                     </button>  --}}
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                            </form>
+                                        </div>
 
 
                                     </ul>
-                                    
+
                                 </nav>
                             </div>
                         </div>
 
-                        
+
                     </div>
                     <div class="header__right">
                         <div class="header__action d-flex align-items-center">
@@ -366,8 +388,8 @@
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                                
-                                                  {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
+
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
                                             </a>
                                             {{-- <a class="nav-link" href="{{ route('dashboard') }}">Dashboad</a> --}}
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -407,63 +429,63 @@
 </main>
 
 
-    <div class="whatsapp-dark">
-        <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+<div class="whatsapp-dark">
+    <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
 
-    <style>
-        .whatsapp-dark {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #202c33;
-            border: 2px solid #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+<style>
+    .whatsapp-dark {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #202c33;
+        border: 2px solid #25D366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
 
-        .whatsapp-dark a {
-            color: #25D366;
-            font-size: 30px;
-            text-decoration: none;
-        }
+    .whatsapp-dark a {
+        color: #25D366;
+        font-size: 30px;
+        text-decoration: none;
+    }
 
-        .whatsapp-dark:hover {
-            background-color: #25D366;
-        }
+    .whatsapp-dark:hover {
+        background-color: #25D366;
+    }
 
-        .whatsapp-dark:hover a {
-            color: white;
-        }
+    .whatsapp-dark:hover a {
+        color: white;
+    }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            background-color: #25D366;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 30px 30px 30px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-            font-weight: bold;
-            z-index: 1000;
-        }
+    .whatsapp-float {
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 30px 30px 30px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+        z-index: 1000;
+    }
 
-        .whatsapp-float i {
-            font-size: 24px;
-        }
-    </style>
+    .whatsapp-float i {
+        font-size: 24px;
+    }
+</style>
 
 <!-- Footer area start -->
 <footer>
@@ -478,14 +500,14 @@
                             </a>
                         </div>
                         <div class="footer__content">
-                             <p> {!! \App\Helpers\TranslationHelper::TranslateText($config->description) !!} </p>
+                            <p> {!! \App\Helpers\TranslationHelper::TranslateText($config->description) !!} </p>
                         </div>
 
                         <div class="footer__social mt-20">
                             <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                             <a href="https://youtube.com/"><i class="fab fa-youtube"></i></a>
-                        <a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://linkedin.com/"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -493,20 +515,26 @@
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="footer__widget footer__widget-item-2">
                         <div class="footer__widget-title">
-                            <h4>  {{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h4>
+                            <h4> {{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h4>
                         </div>
                         <div class="footer__link">
                             <ul>
-                                <li><a  href="{{ url('/') }}"><i class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }} </a></li>
-                                <li><a href="{{ route('about') }}"><i class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a></li>
-                                <li><a href="{{ route('nos_services') }}"><i class="fa-solid fa-angle-right"></i>
-                                    {{ \App\Helpers\TranslationHelper::TranslateText('Services') }}
+                                <li><a href="{{ url('/') }}"><i
+                                            class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}
                                     </a></li>
-                                <li><a href="{{ route('news') }}"><i class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}</a>
+                                <li><a href="{{ route('about') }}"><i
+                                            class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
                                 </li>
-                                <li><a href="{{ route('contact') }}"><i class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a>
+                                <li><a href="{{ route('nos_services') }}"><i class="fa-solid fa-angle-right"></i>
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Services') }}
+                                    </a></li>
+                                <li><a href="{{ route('news') }}"><i
+                                            class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}</a>
                                 </li>
-                                
+                                <li><a href="{{ route('contact') }}"><i
+                                            class="fa-solid fa-angle-right"></i>{{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -515,21 +543,19 @@
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="footer__widget footer__widget-item-3">
                         <div class="footer__widget-title">
-                            <h4>  {{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</h4>
+                            <h4> {{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</h4>
                         </div>
                         <div class="footer__link">
                             <ul>
-                                <li><a href="index-3.html"><i class="fa-solid fa-angle-right"></i>Offset Printing</a>
+                                <li><a href="#"><i class="fa-solid fa-angle-right"></i>Offset Printing</a>
                                 </li>
-                                <li><a href="about-us.html"><i class="fa-solid fa-angle-right"></i>Business Card</a>
+                                <li><a href="#"><i class="fa-solid fa-angle-right"></i>Business Card</a>
                                 </li>
-                                <li><a href="service.html"><i class="fa-solid fa-angle-right"></i>Design &
+                                <li><a href="#"><i class="fa-solid fa-angle-right"></i>Design &
                                         Branding</a></li>
-                                <li><a href="blog.html"><i class="fa-solid fa-angle-right"></i>3D Design &
+                                <li><a href="#"><i class="fa-solid fa-angle-right"></i>3D Design &
                                         Printing</a></li>
-                                <li><a href="blog.html"><i class="fa-solid fa-angle-right"></i>Mug Printing</a></li>
-                                <li><a href="blog.html"><i class="fa-solid fa-angle-right"></i>T-Shirt Printing</a>
-                                </li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -538,7 +564,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="footer__widget footer__widget-item-4">
                         <div class="footer__widget-title">
-                            <h4>  {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</h4>
+                            <h4> {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}</h4>
 
 
                         </div>
@@ -577,11 +603,11 @@
 
                                     </a>
                                     <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}"
-                                            target="_blank">
-                                            {{ $config->telephone }}
-                                           {{--  <i class="fab fa-whatsapp"></i> --}}
+                                        target="_blank">
+                                        {{ $config->telephone }}
+                                        {{-- <i class="fab fa-whatsapp"></i> --}}
 
-                                        </a>
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="mailto:rrdevs@gmail.com">
@@ -599,7 +625,7 @@
                                         </span>
                                         <span>{{ $config->email }}</span>
 
-                                        
+
                                     </a>
                                 </li>
                             </ul>

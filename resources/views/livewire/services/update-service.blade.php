@@ -19,6 +19,20 @@
             @enderror
         </div>
 
+          <div class=" mb-3">
+                    <label for="">Categorie </label>
+                    <select wire:model='category_id' class="form-control @error('category_id') is-invalid @enderror">
+                        <option value=""></option>
+                        @foreach ($categories as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+
+
         <div class="mb-3">
             <label for="">Meta description du service</label>
             <textarea  class="form-control" name="description" wire:model="meta_description" rows="2" cols="50">

@@ -50,36 +50,15 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div> 
-              {{--   <div class="col-sm-6 mb-3">
-                    <label for="">Marque </label>
-                    <select wire:model='marque_id' class="form-control @error('marque_id') is-invalid @enderror">
-                        <option value=""></option>
-                        @foreach ($marques as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
-                        @endforeach
-                    </select>
-                    @error('category_id')
-                        <span class="text-danger small"> {{ $message }} </span>
-                    @enderror
-                </div>  --}}
+          
                
                
-               {{--  <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="">Référence du blogs</label>
-                        <input type="text" step="0.1" name="reference" class="form-control"
-                            wire:model="reference">
-                        @error('reference')
-                            <span class="text-danger small"> {{ $message }} </span>
-                        @enderror
-                    </div>
-                </div>
- --}}
+       
             </div>
         </div>
         <div class="col-sm-4">
             <div class="mb-3">
-                <label for="">image d'illustration (300*300)</label>
+                <label for="">image d'illustration (370*241)</label>
                 <div class="preview-blogs-illustration" onclick="preview_illustration('new-prosduit')">
                     @if ($blog)
                         @if ($image2 && is_null($image))

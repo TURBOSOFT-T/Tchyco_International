@@ -10,13 +10,26 @@
 
     <div class="row">
         <div class="col-sm-8">
-            <div class="mb-3">
+            <div class=" col-sm-8  mb-3">
                 <label for="">Nom</label>
                 <input type="text" name="nom" class="form-control" wire:model="nom">
                 @error('nom')
                     <span class="text-danger small"> {{ $message }} </span>
                 @enderror
             </div>
+              <div class="col-sm-8 mb-3">
+                    <label for="">Categorie </label>
+                    <select wire:model='category_id' class="form-control @error('category_id') is-invalid @enderror">
+                        <option value=""></option>
+                        @foreach ($categories as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->nom }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
+
             <div class="mb-3" wire:ignore>
                 <label><strong>Meta Description :</strong></label>
                 <textarea class="form-control" name="description" wire:model="meta_description" rows="2"></textarea>
@@ -33,6 +46,7 @@
                 @enderror
             </div>
 
+          
         </div>
         <div class="col-sm-4">
             <div class="mb-3">
